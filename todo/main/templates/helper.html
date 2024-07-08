@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block tables %}
+<a href="" class="table_name_link"><div class="table_name">All</div></a>
+{% for table in tables %}
+    <a href="{% url 'category_slug' table.slug %}" class="table_name_link"><div class="table_name">{{ table.category }}</div></a>
+{% endfor %}
+{% endblock %}
+
+
+
+{% block task %}
+{% for task in tasks %}
+<div class="selected_table_task">
+    <div class="task number">{{ forloop.counter0 }}</div>
+    <div class="task title">{{ task.title }}</div>
+    <div class="task discription">{{ task.discription }}</div>
+    <div class="task data">{{ task.date }}</div>
+</div>
+{% endfor %}
+{% endblock %}
